@@ -1,0 +1,16 @@
+manager ansible_connection=local
+appserver ansible_user=vagrant ansible_host=10.0.0.21 ansible_ssh_private_key_file=/keys/private_key_appserver
+solrserver ansible_user=vagrant ansible_host=10.0.0.22 ansible_ssh_private_key_file=/keys/private_key_solrserver
+webserver ansible_user=vagrant ansible_host=10.0.0.23 ansible_ssh_private_key_file=/keys/private_key_webserver
+
+[tag_Name_appserver]
+appserver
+
+[tag_Name_dbserver]
+solrserver
+
+[tag_Name_solrserver]
+solrserver
+
+[tag_Name_webserver]
+webserver

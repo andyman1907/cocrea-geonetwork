@@ -1,0 +1,17 @@
+# Export the variables to access the AWS API
+#export AWS_ACCESS_KEY_ID=XXXXXXXXXX
+#export AWS_SECRET_ACCESS_KEY=XXXXXXXXXX
+
+m_vpc_id: vpc-f6fc429f
+m_region: eu-west-2
+m_keyname: geonetwork-london
+
+ec2_instance_type: t2.micro
+ec2_image: ami-9c363cf8
+
+db_instance_type: db.t2.micro
+db_size: 10
+db_instance_name: default-instance
+db_db_name: geonetworkdb
+db_username: defaultuser
+db_password: default1

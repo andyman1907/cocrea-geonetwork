@@ -1,0 +1,73 @@
+- name: Stop tomcat service to avoid autodeploy
+  systemd:
+    name: tomcat
+    state: stopped
+
+- name: Create home folder for geonetwork related data, config, etc
+  file:
+    path: "{{ geonetwork['home'] }}"
+    state: directory
+    owner: tomcat
+    group: tomcat
+    mode: 'g+rw'
+
+- name: Create data dir for geonetwork
+  file:
+    path: "{{ geonetwork['home'] }}/data"
+    state: directory
+    owner: tomcat
+    group: tomcat
+    mode: 'g+rw'
+
+- name: Create folder for geonetwork app
+  file:
+    path: "{{ geonetwork['tomcat_dir'] }}"
+    state: directory
+
+- name: Check if geonetwork has been deployed already.
+  find:
+    paths: "{{ tomcat['home'] }}/webapps/geonetwork"
+    file_type: directory
+    patterns: "*"
+  register: geonetwork_dir_files
+
+- name: Obtain and decompress geonetwork
+  unarchive:
+    src: "{{ geonetwork['package_location'] }}"
+    dest: "{{ geonetwork['tomcat_dir'] }}"
+    remote_src: "{{ geonetwork['remote'] }}"
+  when: geonetwork["redeploy"] or geonetwork_dir_files.matched|int == 0
+
+- name: Copy srv.xml
+  template:
+    src: srv.xml.j2
+    dest: "{{ geonetwork['tomcat_dir'] }}/WEB-INF/config-node/srv.xml"
+
+- name: Copy jdbc.properties
+  template:
+    src: jdbc.properties.j2
+    dest: "{{ geonetwork['tomcat_dir'] }}/WEB-INF/config-db/jdbc.properties"
+
+- name: Copy config-solr.properties
+  template:
+    src: config-solr.properties.j2
+    dest: "{{ geonetwork['tomcat_dir'] }}/WEB-INF/config-solr.properties"
+
+- name: Copy log4j.xml
+  template:
+    src: log4j.xml.j2
+    dest: "{{ geonetwork['tomcat_dir'] }}/WEB-INF/classes/log4j.xml"
+
+- name: Set tomcat user as owner of geonetwork related files in tomcat dir
+  file:
+    path: "{{ geonetwork['tomcat_dir'] }}"
+    owner: tomcat
+    group: tomcat
+    recurse: yes
+    mode: 'g+rw'
+
+- name: Restart tomcat service
+  systemd:
+    name: tomcat
+    state: started
+  become: true

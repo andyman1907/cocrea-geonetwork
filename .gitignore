@@ -1,0 +1,5 @@
+**/.vagrant/
+ansible/**/*.retry
+ansible/aws/sshkey/
+**/.DS_Store
+tmp
