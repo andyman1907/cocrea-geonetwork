@@ -1,13 +1,15 @@
 # Apache Tomcat
 
-## Definición Funciona como un contenedor de servlets desarrollado bajo el proyecto Jakarta en la Apache Software Foundation. Tomcat implementa las especificaciones de los servlets y de JavaServer Pages (JSP) de Oracle Corporation (aunque creado por Sun Microsystems). ##Rol en geonetwork Geonetwork al ser una herramienta de uso libre ya desarrollada en JAVA permite la instalación y configuración en un contenedor de aplicaciones (apache Tomcat) que a su vez está instalado en el servidor, es decir para que Geonetwork funcione es necesario estar desplegado en Tomcat o en una aplicación similar.
+## Definición 
+Funciona como un contenedor de servlets desarrollado bajo el proyecto Jakarta en la Apache Software Foundation. Tomcat implementa las especificaciones de los servlets y de JavaServer Pages (JSP) de Oracle Corporation (aunque creado por Sun Microsystems). ##Rol en geonetwork Geonetwork al ser una herramienta de uso libre ya desarrollada en JAVA permite la instalación y configuración en un contenedor de aplicaciones (apache Tomcat) que a su vez está instalado en el servidor, es decir para que Geonetwork funcione es necesario estar desplegado en Tomcat o en una aplicación similar.
 
 ## Configuraciones para geonetwork 
 Una vez instalado apache Tomcat es necesario configurarlo para que permita ejecutar aplicaciones que solicitan más memoria de la que viene por default, este proceso se realiza a través del archivo ubicado en /etc/default/tomcat7/bin/setenv.sh allí agregar o editar la siguiente línea: JAVA_OPTS = "$JAVA_OPTS -Xms128m -Xmx512m -server" De esta forma se configurarán 512mb para su ejecución siendo esto suficiente para un correcto despliegue, es necesario conocer el usuario administrador que nos permitirá gestionar las instancias de geonetwork en apache tomcat, para realizar este proceso se debe: Ir la carpeta de instalación de apache tomcat vx (siendo x la versión de tomcat puede ser 7, 8 o 9 se recomienda 7 u 8 por temas de compatibilidad), ingresar en la carpeta conf y allí localizar el archivo tomcat-users.xml el cual contendrá los usuario y permisos del mismo
 
 Si es una nueva instalación posiblemente estarán comentados los usuarios, agregar la información indicada a continuación antes de asegurándose que aparezca la siguiente información:
 
-##Configuraciones posteriores. Normalmente no se deberían cambiar estas configuraciones pero si en algún momento se necesita sería esta última la única opción a cambiar o el usuario o contraseña de tomcat, es posible agregar algunos roles más en caso de ser necesario. #Apache Http Server - Servidor Web
+## Configuraciones posteriores. 
+Normalmente no se deberían cambiar estas configuraciones pero si en algún momento se necesita sería esta última la única opción a cambiar o el usuario o contraseña de tomcat, es posible agregar algunos roles más en caso de ser necesario. #Apache Http Server - Servidor Web
 
 ## Definición
 
