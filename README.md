@@ -47,3 +47,4 @@ Después de la instalación del motor es necesario crear una base de datos llama
 ##Configuraciones posteriores
 
 De ser necesario se cambiaría el nombre de la base de datos, el usuario o la contraseña sin embargo esto puede acarrear perdida de información o segmentación de la misma.
+
