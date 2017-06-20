@@ -34,7 +34,11 @@ Para llevar a cabo este proceso es necesario retirar el carácter # del archivo 
 Normalmente no se deberían modificar estas configuraciones pero si en el algún momento se desea cambiar sus ajustes será necesario volver a ponerle el carácter # para así deshabilitar cada funcionabilidad.
 
 # Solr - 
-Software de indexamiento ##Definición Es un motor de búsqueda de código abierto basado en la biblioteca Java del proyecto Lucene, con APIs en XML/HTTP y JSON, resaltado de resultados, búsqueda por facetas, caché, y una interfaz para su administración. Básicamente se encarga de organizar la toda la información que genera Geonetwork para que sea encontrada de una forma más eficiente que si se buscara a través de la base de datos, este motor tiene en cuenta las búsquedas más frecuentes para disponer de la información más rápido.
+
+Software de indexamiento 
+## Definición 
+
+Es un motor de búsqueda de código abierto basado en la biblioteca Java del proyecto Lucene, con APIs en XML/HTTP y JSON, resaltado de resultados, búsqueda por facetas, caché, y una interfaz para su administración. Básicamente se encarga de organizar la toda la información que genera Geonetwork para que sea encontrada de una forma más eficiente que si se buscara a través de la base de datos, este motor tiene en cuenta las búsquedas más frecuentes para disponer de la información más rápido.
 
 ## Configuraciones para Geonetwork Ya viene integrado, no necesita ninguna configuración.
 
