@@ -9,7 +9,9 @@ Una vez instalado apache Tomcat es necesario configurarlo para que permita ejecu
 Si es una nueva instalación posiblemente estarán comentados los usuarios, agregar la información indicada a continuación antes de asegurándose que aparezca la siguiente información:
 
 ## Configuraciones posteriores. 
-Normalmente no se deberían cambiar estas configuraciones pero si en algún momento se necesita sería esta última la única opción a cambiar o el usuario o contraseña de tomcat, es posible agregar algunos roles más en caso de ser necesario. #Apache Http Server - Servidor Web
+Normalmente no se deberían cambiar estas configuraciones pero si en algún momento se necesita sería esta última la única opción a cambiar o el usuario o contraseña de tomcat, es posible agregar algunos roles más en caso de ser necesario. 
+
+# Apache Http Server - Servidor Web
 
 ## Definición
 
@@ -18,16 +20,16 @@ Es un servidor web HTTP de código abierto, para plataformas Unix (BSD, GNU/Linu
 ## Rol en Geonetwork 
 Para poder acceder a Geonetwork es necesario ingresar a una página web a través de un navegador como google Chrome o similar por tal motivo para permitir esta comunicación y esta disponibilidad vía web fue necesario instalar este servidor de aplicaciones web con el fin de agregar las funcionabilidades de ssl, proxis y ftp con el fin de asegurar la seguridad con los módulos activados de apache http. Configuraciones para geonetwork Una vez instalado es necesario activar los módulos de:
 
-ssl
-headers
-proxy
-proxy_ajp
-proxy_connect
-proxy_ftp
-proxy_html
-proxy_http
-rewrite
-xml2enc
+* ssl
+* headers
+* proxy
+* proxy_ajp
+* proxy_connect
+* proxy_ftp
+* proxy_html
+* proxy_http
+* rewrite
+* xml2enc
 Para llevar a cabo este proceso es necesario retirar el carácter # del archivo conf/httpd.conf
 
 ## Configuraciones posteriores 
