@@ -2,6 +2,8 @@
 
 ## Definición 
 Funciona como un contenedor de servlets desarrollado bajo el proyecto Jakarta en la Apache Software Foundation. Tomcat implementa las especificaciones de los servlets y de JavaServer Pages (JSP) de Oracle Corporation (aunque creado por Sun Microsystems). 
+<div style="text-align:center"><img src ="doc/img/tomcat.png" /></div>
+
 ## Rol en geonetwork 
 Geonetwork al ser una herramienta de uso libre ya desarrollada en JAVA permite la instalación y configuración en un contenedor de aplicaciones (apache Tomcat) que a su vez está instalado en el servidor, es decir para que Geonetwork funcione es necesario estar desplegado en Tomcat o en una aplicación similar.
 
@@ -15,10 +17,10 @@ En caso que se desee modificar la información y configuraciones de la automatiz
 branch / allin / ansible / group_vars /  tag_Name_appserver / tomcat
 desde aquí se podrán modificar las siguientes opciones
 * version actualmente **apache-tomcat-7.0.78**
-* java_vm_ms actualmente **1024M** es posible aumentar la capacitad en caso de ser necesario a **2048M** 2GB memoria
-* java_vm_mx actualmente **1024M** es posible aumentar la capacitad en caso de ser necesario a **2048M** 2GB memoria
-* admin_user actualmente **admin** es posible cualquier nombre de usuario por ejemplo **usu4r104dmn1str4d0r**
-* admin_password actualmente **admin** es posible cualquier contraseña por ejemplo **c0ntr4s3n4+c0mpl3j4**
+* ``` java_vm_ms :1024M ``` es posible aumentar la capacitad en caso de ser necesario a ```java_vm_ms :2048M``` 2GB memoria
+* ```java_vm_mx: 1024M``` es posible aumentar la capacitad en caso de ser necesario a ```java_vm_mx: 2048M``` 2GB memoria
+* ```admin_user: admin``` es posible cualquier nombre de usuario por ejemplo ```admin_user: usu4r104dmn1str4d0r```
+* ```admin_password: admin``` es posible cualquier contraseña por ejemplo ```admin_password: c0ntr4s3n4+c0mpl3j4```
 
 
 ## Configuraciones posteriores. 
@@ -29,6 +31,8 @@ Normalmente no se deberían cambiar estas configuraciones pero si en algún mome
 ## Definición
 
 Es un servidor web HTTP de código abierto, para plataformas Unix (BSD, GNU/Linux, etc.), Microsoft Windows, Macintosh y otras, que implementa el protocolo HTTP/1.12 y la noción de sitio virtual. El servidor Apache es desarrollado y mantenido por una comunidad de usuarios bajo la supervisión de la Apache Software Foundation dentro del proyecto HTTP Server (httpd).
+
+<div style="text-align:center"><img src ="doc/img/http.png" /></div>
 
 ## Rol en Geonetwork 
 Para poder acceder a Geonetwork es necesario ingresar a una página web a través de un navegador como google Chrome o similar por tal motivo para permitir esta comunicación y esta disponibilidad vía web fue necesario instalar este servidor de aplicaciones web con el fin de agregar las funcionabilidades de ssl, proxis y ftp con el fin de asegurar la seguridad con los módulos activados de apache http. Configuraciones para geonetwork Una vez instalado es necesario activar los módulos de:
@@ -59,19 +63,21 @@ Normalmente no se deberían modificar estas configuraciones pero si en el algún
 
 Es un motor de búsqueda de código abierto basado en la biblioteca Java del proyecto Lucene, con APIs en XML/HTTP y JSON, resaltado de resultados, búsqueda por facetas, caché, y una interfaz para su administración. Básicamente se encarga de organizar la toda la información que genera Geonetwork para que sea encontrada de una forma más eficiente que si se buscara a través de la base de datos, este motor tiene en cuenta las búsquedas más frecuentes para disponer de la información más rápido.
 
+<div style="text-align:center"><img src ="doc/img/solr.png" /></div>
+
 ## Configuraciones para Geonetwork 
 Ya viene integrado, no necesita ninguna configuración.
 
 ## Cambios de configuraciones antes del despliegue
 Para cambiar los ajustes principales ingresar a la ruta:
 branch / allin / ansible / group_vars /  tag_Name_solrserver
-solr_user: actualmente  **solr**
-solr_connect_host: actualmente **localhost**
-solr_port: **8983**
-solr_xms:**256M**
-solr_xmx: **512M**
-solr_timezone: actualmente **"UTC"** dependiendo de la zona horaria se puede usar **"UTC-5"** para Colombia
-solr_log_file_path: actualmente **/var/log/solr.log** es posible cambiarla por una ruta diferente dependiendo de la necesidad, tener en cuenta que esta es una ruta linux por lo tanto debe respetar estas su sintaxis.
+* ```solr_user: solr```
+* ```solr_connect_host: localhost```
+* ```solr_port: 8983 ```
+* ```solr_xms: 256M ```
+* ```solr_xmx: 512M ```
+* ```solr_timezone: UTC ``` dependiendo de la zona horaria se puede usar ```solr_timezone: "UTC-5" ``` para Colombia
+* ```solr_log_file_path: /var/log/solr.log``` es posible cambiarla por una ruta diferente dependiendo de la necesidad, tener en cuenta que esta es una ruta linux por lo tanto debe respetar estas su sintaxis.
 
 ## Configuraciones posteriores.
 
@@ -82,6 +88,8 @@ Ninguna configuración posterior.
 
 Es un sistema de gestión de bases de datos relacional desarrollado bajo licencia dual GPL/Licencia comercial por Oracle Corporation y está considerada como la base datos open source más popular del mundo,1 2 y una de las más populares en general junto a Oracle y Microsoft SQL Server, sobre todo para entornos de desarrollo web.
 
+<div style="text-align:center"><img src ="doc/img/mysql.PNG" /></div>
+
 ## Configuraciones para Geonetwork
 
 Después de la instalación del motor es necesario crear una base de datos llamada geonetwork con un usuario geonet y una contraseña geonetwork Posterior a esto se configura en los procesos posteriores usando ansible estos datos en geonetwork
@@ -90,11 +98,11 @@ Después de la instalación del motor es necesario crear una base de datos llama
 Para cambiar los ajustes principales ingresar a la ruta:
 branch / allin / ansible / group_vars /  tag_Name_dbserver
 es posible cambiar el nombre de usuario, contraseña,  base de datos, codificación, puerto, timeout de las querys de la siguiente manera:
-* name: actualmente **defaultuser** se puede cambiar por ejemplo por el **usu4r10g30n3tw0rk**
-* password: actualmente **default1** se puede cambiar por ejemplo por **c0ntr4s3n4g30n3tw0rk**
-* name: actualmente **geonetworkdb** se puede cambiar por cualquier otro nombre ejemplo **dbg30n3tw0rk**
-* mysql_port: actualmente  **"3306"** se puede cambiar por cualquier otro por ejemplo **3309**
-* mysql_wait_timeout: actualmente  **"28800"** este tiempo está representado en milisegundos se puede aumentar o disminuir por ejemplo **20000**
+* ```name: defaultuser ``` se puede cambiar por ejemplo por el ```name: usu4r10g30n3tw0rk```
+* ```password: default1``` se puede cambiar por ejemplo por ```password: c0ntr4s3n4g30n3tw0rk```
+* ```name: geonetworkdb``` se puede cambiar por cualquier otro nombre ejemplo ```name: dbg30n3tw0rk```
+* ```mysql_port: "3306"``` se puede cambiar por cualquier otro por ejemplo ```mysql_port: 3309```
+* ```mysql_wait_timeout: "28800"``` este tiempo está representado en milisegundos se puede aumentar o disminuir por ejemplo ```mysql_wait_timeout: 20000```
 
 ## Configuraciones posteriores
 
