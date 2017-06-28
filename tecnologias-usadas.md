@@ -160,12 +160,12 @@ appserver
 Los servidores o nodos pueden ser agrupados por caracteristicas que sean consideradas importantes para manejar un mayor orden y no tener la necesidad de llamar a cada uno.
 ## Vagrant
 ### Definicion
-Vagrant es una herramienta para la creaciÃ³n y configuraciÃ³n de entornos de desarrollo virtualizados. Brinda la capacidad de instalar y configurar software en una maquina virtual para simular que nos encontramos en el servidor en el que se alojara la aplicaciÃ³n web.
+Vagrant es una herramienta para la creación y configuración de entornos de desarrollo virtualizados. Brinda la capacidad de instalar y configurar software en una máquina virtual para simular que nos encontramos en el servidor en el que se alojará la aplicación web.
 ### Rol en geonetwork
 Gracias a las capacidades de vagrant, se esta haciendo un aprovisionamiento ``` Vagrant-Ansible``` 
 de modo que con vagrant y virtualbox se esta creando un entorno de desarrollo haciendo uso de una de sus box llamada ``` ubuntu/trusty64```  en la cual se esta aprovisionando ansible y desde la cual se realiza el despliegue a los servidores.
 
-Del mismo modo se crean tres mas con la diferencia que estan no utilizan la box ``` ubuntu/trusry64```  ni tampoco aprovisionan a Ansible. Estas maquinas manejan la caja ``` centos/7```  y aca una de ellas es agregada un ip con la cual seran identificadas.
+Del mismo modo se crean tres más con la diferencia que estan no utilizan la box ``` ubuntu/trusry64```  ni tampoco aprovisionan a Ansible. Estas máquinas manejan la caja ``` centos/7```  y aca una de ellas es agregada un ip con la cual seran identificadas.
 * appserver
 * solrserver
 * webserver
